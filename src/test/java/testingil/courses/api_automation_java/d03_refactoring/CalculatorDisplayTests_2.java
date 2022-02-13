@@ -8,7 +8,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CalculatorDisplayTests_2 {
 
     private CalculatorDisplay_2 calc;
-    private String result;
 
     @BeforeEach
     public void setup(){
@@ -17,22 +16,19 @@ public class CalculatorDisplayTests_2 {
 
     @Test
     public void on_start_show_0() {
-        result = calc.getDisplay();
-        assertEquals("0", result);
+        assertEquals("0", calc.getDisplay());
     }
 
     @Test
     public void only_numbers() {
         pressAll("13");
-        result = calc.getDisplay();
-        assertEquals("13", result);
+        assertEquals("13", calc.getDisplay());
     }
 
     @Test
     public void number_and_operation_show_only_number() {
         pressAll("1+");
-        result = calc.getDisplay();
-        assertEquals("1", result);
+        assertEquals("1", calc.getDisplay());
     }
 
     private void pressAll(String keys){
