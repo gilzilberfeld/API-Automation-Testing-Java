@@ -8,7 +8,7 @@ public class XMLExamples {
 
 //    <Person>
 //          <FirstName>Joe</FirstSmith>
-//          <SecondName>Smith</SecondName>
+//          <SurName>Smith</SurName>
 //          <Children>
 //              <Child name="Jane"/>
 //              <Child name="Jim"/>

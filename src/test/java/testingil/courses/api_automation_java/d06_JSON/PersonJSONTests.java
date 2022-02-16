@@ -26,15 +26,14 @@ public class PersonJSONTests {
         JSONObject jsonPerson = json.getJSONObject("Person");
         String firstName = jsonPerson.getString("FirstName");
         assertEquals("Joe", firstName);
-
     }
+
     @Test void joe_has_three_children() throws Exception {
         JSONObject json = new JSONObject(JSONExamples.getPerson());
         JSONObject jsonPerson = json.getJSONObject("Person");
         int num_of_children = jsonPerson.getJSONArray("Children").length();
         assertEquals(3, num_of_children);
     }
-
 
     @Test void second_child_name_is_jim() throws Exception {
         JSONObject json = new JSONObject(JSONExamples.getPerson());

@@ -8,8 +8,8 @@ public class FizzBuzz_Tests {
     @Test
     public void print_fizz_buzz(){
         FizzBuzz fb = new FizzBuzz();
-        String calculate = fb.calculate(0);
-        assertEquals ("0", calculate);
+        String calculate = fb.calculate(1);
+        assertEquals ("1", calculate);
     }
 
 }
