@@ -1,4 +1,4 @@
-package testingil.courses.api_automation_java.d07_serialization;
+package testingil.courses.api_automation_java.d07_deserialization;
 
 import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import org.junit.jupiter.api.Test;

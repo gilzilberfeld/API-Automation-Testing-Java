@@ -1,12 +1,9 @@
-package testingil.courses.api_automation_java.d07_serialization;
+package testingil.courses.api_automation_java.d07_deserialization;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Test;
 import testingil.courses.api_automation_java.d07.serialization.Root;
 
-import java.io.File;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
