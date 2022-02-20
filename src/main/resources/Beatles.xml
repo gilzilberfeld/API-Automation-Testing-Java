@@ -15,7 +15,7 @@
         </Artist>
         <Artist name="Ringo Starr ">
             <Plays>Guitar</Plays>
-            <IsAlive>No</IsAlive>
+            <IsAlive>Yes</IsAlive>
         </Artist>
     </Artists>
 </Beatles>

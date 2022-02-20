@@ -19,7 +19,7 @@
       {
         "Name": "Ringo Starr ",
         "Plays": "Guitar",
-        "IsAlive": "No"
+        "IsAlive": "Yes"
       }
     ]
   }
