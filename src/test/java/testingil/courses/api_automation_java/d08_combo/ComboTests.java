@@ -87,10 +87,6 @@ public class ComboTests {
         Element rootElement = doc.getDocumentElement();
         return rootElement;
     }
-    // test 1
-    // load the beatles xml
-    // load the beatles json
-    // prove that paul plays bass in both of them
 
     // test 2
     // create a data object for the MCU
