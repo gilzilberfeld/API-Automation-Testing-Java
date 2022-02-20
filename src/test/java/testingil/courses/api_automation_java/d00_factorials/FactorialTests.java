@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class Factorials {
+public class FactorialTests {
     @Test
     public void test_factorial(){
         int input = 3;
