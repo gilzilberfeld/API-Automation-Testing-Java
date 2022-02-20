@@ -6,6 +6,8 @@
 .metadata
 bin/
 tmp/
+target/
+target/**/*.class
 *.tmp
 *.bak
 *.swp
