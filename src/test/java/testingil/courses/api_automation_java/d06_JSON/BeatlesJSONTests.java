@@ -21,7 +21,6 @@ public class BeatlesJSONTests {
     public void setup() throws Exception {
         String json = Files.readString(Path.of(".//src//main//resources//Beatles.JSON"));
         jsonBeatles = new JSONObject(json).optJSONObject("Beatles");
-
     }
 
     @Test

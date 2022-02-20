@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.StringReader;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class BeatlesXMLTests {
 
@@ -44,13 +45,24 @@ public class BeatlesXMLTests {
             if (isAliveText.equals("No"))
                 countDead++;
         }
-      //  assertEquals(2, countAlive);
+        assertEquals(2, countAlive);
         assertEquals(2, countDead);
 
     }
 
     @Test
     public void ringo_plays_drums(){
-
+        Boolean ringo_plays_drums = false;
+        var artist_list = rootElement.getElementsByTagName("Artist");
+        for (int i=0; i< artist_list.getLength(); i++) {
+            var artist = (Element) artist_list.item(i);
+            String name = artist.getAttribute("name");
+            if (name.equals("Ringo Starr")) {
+                if (artist.getElementsByTagName("Plays").item(0).getTextContent().equals("Drums"))
+                    ringo_plays_drums = true;
+                break;
+            }
+        }
+        assertTrue(ringo_plays_drums);
     }
 }
