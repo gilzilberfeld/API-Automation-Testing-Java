@@ -2,9 +2,9 @@ package testingil.courses.api_automation_java.d10_ra_exercises;
 
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.Test;
+import testingil.courses.api_automation_java.d09_rest_assured.Todo;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 
 public class RA_Tests {
@@ -56,5 +56,44 @@ public class RA_Tests {
                 statusCode(200).
                 log().all().
                 body("todos[0].title", equalTo("My Todo"));
+    }
+
+    // use object for serialization
+    // Update the description field
+    @Test
+    public void create_update_delete_todo(){
+       Todo new_todo = new Todo();
+       new_todo.title = "new title";
+       new_todo.description = "new description";
+       new_todo.doneStatus = false;
+
+       int id =
+                given().
+                        body(new_todo).
+                when().
+                        post("http://apichallenges.herokuapp.com/todos").
+                then().
+                        statusCode(201).
+                        extract().path("id");
+
+       new_todo.doneStatus = true;
+
+        given().
+                pathParam("todoId", id).
+                contentType(ContentType.JSON).
+                body(new_todo).
+        when().
+                post("http://apichallenges.herokuapp.com/todos/{todoId}").
+        then().
+                statusCode(200).
+                body("doneStatus", is(true));
+
+        given().
+                pathParam("todoId", id).
+        when().
+                delete("http://apichallenges.herokuapp.com/todos/{todoId}").
+        then().
+                statusCode(200);
+
     }
 }
