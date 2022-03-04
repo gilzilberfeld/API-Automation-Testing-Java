@@ -1,6 +1,7 @@
 package testingil.courses.api_automation_java.d09_rest_assured;
 
 import io.restassured.http.ContentType;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
@@ -59,9 +60,16 @@ public class APIExampleTests2 {
                 body("company.name", equalTo("Romaguera-Crona"));
     }
 
-    // jsonpath example
-    // xmlpath example
-    // put in both brances
-    // then exercises
-
+    @Test
+    @Disabled
+    public void query_xml_response(){
+        given().
+        when().
+            get("path/to/beatles.xml").
+        then().
+            assertThat().
+                body("Beatles.Artists.Artist[0].@name", equalTo("John Lennon"))
+                .and().
+                body("Beatles.Artists.Artist[0].Plays", equalTo("Guitar"));
+    }
 }
