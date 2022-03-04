@@ -58,6 +58,31 @@ public class RA_Tests {
                 body("todos[0].title", equalTo("My Todo"));
     }
 
+    // use hasItem to find if the ID was added.
+    @Test
+    public void create_todo_and_check_if_added_to_todos(){
+        String request_body="{\n" +
+                "            \"title\": \"My Todo\",\n" +
+                "            \"doneStatus\": false,\n" +
+                "            \"description\": \"dognabbit\"\n" +
+                "        }";
+
+        int id =
+                given().
+                        body(request_body).
+                        when().
+                post("http://apichallenges.herokuapp.com/todos").
+                then().
+                        statusCode(201).
+                        extract().path("id");
+
+        given().
+        when().
+                get("http://apichallenges.herokuapp.com/todos").
+        then().
+                body("todos.id", hasItem(id));
+    }
+
     // use object for serialization
     // Update the description field
     @Test
