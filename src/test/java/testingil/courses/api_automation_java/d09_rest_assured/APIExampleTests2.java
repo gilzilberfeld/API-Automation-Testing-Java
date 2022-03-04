@@ -46,7 +46,19 @@ public class APIExampleTests2 {
                         as(Post.class);
         assertThat(post.id, equalTo(1));
     }
-    
+
+    @Test
+    public void query_json_response(){
+        given().
+        when().
+                get("http://jsonplaceholder.typicode.com/users/1").
+        then().
+                assertThat().
+                body("address.city", equalTo("Gwenborough"))
+                .and().
+                body("company.name", equalTo("Romaguera-Crona"));
+    }
+
     // jsonpath example
     // xmlpath example
     // put in both brances
