@@ -17,9 +17,9 @@
         "IsAlive": "No"
       },
       {
-        "Name": "Ringo Starr ",
-        "Plays": "Guitar",
-        "IsAlive": "No"
+        "Name": "Ringo Starr",
+        "Plays": "Drums",
+        "IsAlive": "Yes"
       }
     ]
   }

@@ -1,6 +1,6 @@
 package testingil.courses.api_automation_java.d03_refactoring;
 
-public class CalculatorDisplay_1 {
+public class CalculatorDisplay {
 
     String d = "0";
     public String getDisplay() {

@@ -1,4 +1,4 @@
-package testingil.courses.api_automation_java.d03_refactoring;
+package testingil.courses.api_automation_java.solutions.d03_refactoring;
 
 public class CalculatorDisplay_2 {
 

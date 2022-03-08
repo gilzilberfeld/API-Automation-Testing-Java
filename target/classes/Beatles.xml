@@ -13,9 +13,9 @@
             <Plays>Guitar</Plays>
             <IsAlive>No</IsAlive>
         </Artist>
-        <Artist name="Ringo Starr ">
-            <Plays>Guitar</Plays>
-            <IsAlive>No</IsAlive>
+        <Artist name="Ringo Starr">
+            <Plays>Drums</Plays>
+            <IsAlive>Yes</IsAlive>
         </Artist>
     </Artists>
 </Beatles>
