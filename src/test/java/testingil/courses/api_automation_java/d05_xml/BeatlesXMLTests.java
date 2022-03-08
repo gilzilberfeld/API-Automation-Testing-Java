@@ -3,13 +3,9 @@ package testingil.courses.api_automation_java.d05_xml;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.w3c.dom.Document;
-import org.xml.sax.InputSource;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.File;
-import java.io.StringReader;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class BeatlesXMLTests {
 

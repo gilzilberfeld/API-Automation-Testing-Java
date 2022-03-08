@@ -5,13 +5,13 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class CalculatorDisplayTests_2 {
+public class CalculatorDisplayTests {
 
-    private CalculatorDisplay_2 calc;
+    private CalculatorDisplay calc;
 
     @BeforeEach
     public void setup(){
-        calc = new CalculatorDisplay_2();
+        calc = new CalculatorDisplay();
     }
 
     @Test

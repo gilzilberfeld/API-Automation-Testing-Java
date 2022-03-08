@@ -61,7 +61,7 @@ public class APIExampleTests2 {
     }
 
     @Test
-    @Disabled
+    @Disabled("Doesn't really talk to a server")
     public void query_xml_response(){
         given().
         when().
