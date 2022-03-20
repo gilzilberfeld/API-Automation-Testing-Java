@@ -31,7 +31,8 @@ public class APIExampleTests {
 
     @Test
     public void get_call_returns_json() {
-        given().when().
+        given().
+        when().
             get("http://jsonplaceholder.typicode.com/users/1").
         then().
             assertThat().contentType(ContentType.JSON);

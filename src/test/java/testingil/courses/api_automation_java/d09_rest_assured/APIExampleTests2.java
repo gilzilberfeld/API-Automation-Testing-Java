@@ -11,18 +11,19 @@ import static org.hamcrest.Matchers.equalTo;
 
 public class APIExampleTests2 {
     @Test
-    public void capture_body_in_variable(){
+    public void capture_response_body_in_variable(){
         String userData =
-                given().when().
+                given().
+                when().
                         get("http://jsonplaceholder.typicode.com/users/1").
-                        then().
+                then().
                         extract().asString();
         System.out.println("userData is: " + userData);
         assertThat(userData,containsString("Leanne Graham"));
     }
 
     @Test
-    public void send_body_as_serialized_object(){
+    public void send_request_body_as_serialized_object(){
         Post newPost = new Post();
         newPost.title="gil-test";
         newPost.body = "bar";
