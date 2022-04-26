@@ -1,0 +1,444 @@
+{
+	"info": {
+		"_postman_id": "010d3754-8226-4870-95f1-261141bc36af",
+		"name": "Demos",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01-Simple Request",
+			"item": [
+				{
+					"name": "1- Amazon Web",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.amazon.com",
+							"protocol": "https",
+							"host": [
+								"www",
+								"amazon",
+								"com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2-Amazon Search iPhone",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.amazon.com/s?k=iphone",
+							"protocol": "https",
+							"host": [
+								"www",
+								"amazon",
+								"com"
+							],
+							"path": [
+								"s"
+							],
+							"query": [
+								{
+									"key": "k",
+									"value": "iphone"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3-Github GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "api.github.com",
+							"host": [
+								"api",
+								"github",
+								"com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "4-Amazon Search iPhone With Parameters",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.amazon.com/s?k=iphone",
+							"protocol": "https",
+							"host": [
+								"www",
+								"amazon",
+								"com"
+							],
+							"path": [
+								"s"
+							],
+							"query": [
+								{
+									"key": "k",
+									"value": "iphone"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "5- Posts Comment for PostId  1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/posts/1/comments",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"posts",
+								"1",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "6- Posts Comment for PostId  as Variable",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://jsonplaceholder.typicode.com/posts/{{post_id}}/comments",
+							"protocol": "https",
+							"host": [
+								"jsonplaceholder",
+								"typicode",
+								"com"
+							],
+							"path": [
+								"posts",
+								"{{post_id}}",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "02-Environment",
+			"item": [
+				{
+					"name": "Search with Env variable",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.amazon.com/s?k={{newEnvproduct}}",
+							"protocol": "https",
+							"host": [
+								"www",
+								"amazon",
+								"com"
+							],
+							"path": [
+								"s"
+							],
+							"query": [
+								{
+									"key": "k",
+									"value": "{{newEnvproduct}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "02-Curious cases",
+			"item": [
+				{
+					"name": "1-Amazon Search iPhone",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.amazon.com/sk=iphone86\n",
+							"protocol": "https",
+							"host": [
+								"www",
+								"amazon",
+								"com"
+							],
+							"path": [
+								"sk=iphone86\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "2- With real parameter",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.amazon.com/s?k=iphone86\n",
+							"protocol": "https",
+							"host": [
+								"www",
+								"amazon",
+								"com"
+							],
+							"path": [
+								"s"
+							],
+							"query": [
+								{
+									"key": "k",
+									"value": "iphone86\n"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "3- Delete todo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/3370\n",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"3370\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Todo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "<todo>\r\n    <done.Status>true</done.Status>\r\n    <description>dognabbit</description>\r\n    <title>Updated</title>\r\n</todo>\r\n",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/3480",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"3480"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "03-Pre Requests",
+			"item": [
+				{
+					"name": "Logging a variable",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.info(\"The global product is: \" + pm.globals.get(\"Ex02-product\"));\r",
+									"console.info(\"The collection path is : \" + pm.environment.get(\"path_to_server\"));\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{path_to_server}}={{Ex02-product}}",
+							"host": [
+								"{{path_to_server}}={{Ex02-product}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Storing the response in a variable",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"result\",  responseBody);\r",
+									"console.info(pm.collectionVariables.get(\"result\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "api.github.com",
+							"host": [
+								"api",
+								"github",
+								"com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Using the variable from before",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var response_json = JSON.parse(pm.collectionVariables.get(\"result\"));\r",
+									"var user_path = response_json.current_user_url\r",
+									"console.log(\"The current user path: \" + user_path);\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "api.github.com",
+							"host": [
+								"api",
+								"github",
+								"com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "04-Tests",
+			"item": [
+				{
+					"name": "Storing the response in a variable",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var response_json = JSON.parse(responseBody);\r",
+									"var user_path = response_json.current_user_url;\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"  pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Correct user path\", function () {\r",
+									"    pm.expect(user_path).to.eql(\"https://api.github.com/user\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "api.github.com",
+							"host": [
+								"api",
+								"github",
+								"com"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "comments-path",
+			"value": ""
+		},
+		{
+			"key": "post_id",
+			"value": "1"
+		},
+		{
+			"key": "result",
+			"value": ""
+		},
+		{
+			"key": "user_path",
+			"value": ""
+		}
+	]
+}

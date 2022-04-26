@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "fe709b80-bc7a-4d1d-bbab-81f76d7d85d0",
+		"name": "EX02 -  Single Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search iPhone - eBay",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.ebay.com/sch/i.html?_nkw={{ex02_product}}",
+					"protocol": "https",
+					"host": [
+						"www",
+						"ebay",
+						"com"
+					],
+					"path": [
+						"sch",
+						"i.html"
+					],
+					"query": [
+						{
+							"key": "_nkw",
+							"value": "{{ex02_product}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search iPhone - Amazon",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.amazon.com/s?k={{ex02_product}}",
+					"protocol": "https",
+					"host": [
+						"www",
+						"amazon",
+						"com"
+					],
+					"path": [
+						"s"
+					],
+					"query": [
+						{
+							"key": null,
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "k",
+							"value": "{{ex02_product}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search iPhone - Ali Express",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.aliexpress.com/wholesale?SearchText={{ex02_product}}",
+					"protocol": "https",
+					"host": [
+						"www",
+						"aliexpress",
+						"com"
+					],
+					"path": [
+						"wholesale"
+					],
+					"query": [
+						{
+							"key": "initiative_id",
+							"value": "",
+							"disabled": true
+						},
+						{
+							"key": "SearchText",
+							"value": "{{ex02_product}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "col_product",
+			"value": "iPhone"
+		},
+		{
+			"key": "ex02_product",
+			"value": "iphone"
+		}
+	]
+}

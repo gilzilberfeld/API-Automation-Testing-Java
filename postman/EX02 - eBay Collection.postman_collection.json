@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "0bcedc29-a40a-4816-89f1-81f035a835f8",
+		"name": "EX02 - eBay Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search iPhone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.ebay.com/sch/i.html?_nkw={{Ex02-product}}",
+					"protocol": "https",
+					"host": [
+						"www",
+						"ebay",
+						"com"
+					],
+					"path": [
+						"sch",
+						"i.html"
+					],
+					"query": [
+						{
+							"key": "_from",
+							"value": "R40",
+							"disabled": true
+						},
+						{
+							"key": "_trksid",
+							"value": "p2334524.m570.l1313",
+							"disabled": true
+						},
+						{
+							"key": "_nkw",
+							"value": "{{Ex02-product}}"
+						},
+						{
+							"key": "_sacat",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "LH_TitleDesc",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "_osacat",
+							"value": "0",
+							"disabled": true
+						},
+						{
+							"key": "_odkw",
+							"value": "iphone",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

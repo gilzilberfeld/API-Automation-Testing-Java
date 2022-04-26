@@ -1,0 +1,34 @@
+{
+	"id": "83963e34-4dd1-492a-82b2-c7bf80ac6f32",
+	"values": [
+		{
+			"key": "Ex02-product",
+			"value": "iphone",
+			"enabled": true
+		},
+		{
+			"key": "api_challenges_path",
+			"value": "https://apichallenges.herokuapp.com/todos",
+			"enabled": true
+		},
+		{
+			"key": "any_update",
+			"value": "updated",
+			"enabled": true
+		},
+		{
+			"key": "any_description",
+			"value": "dognabbit\n",
+			"enabled": true
+		},
+		{
+			"key": "any_title",
+			"value": "My New Todo",
+			"enabled": true
+		}
+	],
+	"name": "Globals",
+	"_postman_variable_scope": "globals",
+	"_postman_exported_at": "2021-10-28T09:08:23.836Z",
+	"_postman_exported_using": "Postman/9.1.1"
+}

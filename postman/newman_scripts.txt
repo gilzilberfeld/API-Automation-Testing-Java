@@ -1,0 +1,11 @@
+Regular collection
+newman run Demos.postman_collection.json 
+
+With environment
+newman run "Ex02 - Ali Express Collection.postman_collection.json" -e AliExpress.postman_environment.json
+
+Data driven
+newman run "Demo - Data Driven.postman_collection.json" -d "items.csv"
+
+Junit report
+newman run "Demos.postman_collection.json" --reporters cli,junit

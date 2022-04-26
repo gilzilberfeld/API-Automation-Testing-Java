@@ -1,0 +1,624 @@
+{
+	"info": {
+		"_postman_id": "76e668ba-8615-469a-a800-92f41644dd21",
+		"name": "EX03 - Pre-Requests and Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "08 - Pre/Post Request Automation",
+			"item": [
+				{
+					"name": "Create Todo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(responseBody);\r",
+									"var id = JSON.parse(responseBody).id;\r",
+									"console.log(id);\r",
+									"pm.collectionVariables.set(\"ex08_created_id\", id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"title\": \"My Todo\",\r\n            \"doneStatus\": false,\r\n            \"description\": \"dognabbit\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the created todo",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id={{ex08_created_id}}",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{ex08_created_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the created todo Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/{{ex08_created_id}}",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"{{ex08_created_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "09 - Pre/Post Request Automation 2",
+			"item": [
+				{
+					"name": "Create Todo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var id = JSON.parse(responseBody).id;\r",
+									"pm.collectionVariables.set(\"ex09_created_id\", id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"title\": \"My New Todo\",\r\n            \"doneStatus\": false,\r\n            \"description\": \"dognabbit\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the created todo",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody);\r",
+									"var desc = body.todos[0].description;\r",
+									"pm.collectionVariables.set(\"ex09_description\", desc);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id={{ex09_created_id}}",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{ex09_created_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the Todo",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var oldDesc = pm.collectionVariables.get(\"ex09_description\");\r",
+									"var newDesc = \"!!! \" + oldDesc + \" !!!\"\r",
+									"pm.collectionVariables.set(\"ex09_description\", newDesc);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"doneStatus\" : true,\r\n    \"description\" : \"{{ex09_description}}\",\r\n    \"title\": \"Updated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/{{ex09_created_id}}",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"{{ex09_created_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the todo again",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id={{ex09_created_id}}",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{ex09_created_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "10 - Tests - Create-Get-Delete Tests",
+			"item": [
+				{
+					"name": "Create Todo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"console.log(responseBody);\r",
+									"var id = JSON.parse(responseBody).id;\r",
+									"console.log(id);\r",
+									"pm.collectionVariables.set(\"ex08_created_id\", id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"title\": \"My Todo\",\r\n            \"doneStatus\": false,\r\n            \"description\": \"dognabbit\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the created todo",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id={{ex08_created_id}}",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{ex08_created_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the created todo Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var id = JSON.parse(responseBody).id;\r",
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/{{ex08_created_id}}",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"{{ex08_created_id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "11 - Tests - Updated correctly",
+			"item": [
+				{
+					"name": "Create Todo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var id = JSON.parse(responseBody).id;\r",
+									"pm.collectionVariables.set(\"ex09_created_id\", id);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"title\": \"My New Todo\",\r\n            \"doneStatus\": false,\r\n            \"description\": \"dognabbit\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the created todo",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var body = JSON.parse(responseBody);\r",
+									"var desc = body.todos[0].description;\r",
+									"pm.collectionVariables.set(\"ex09_description\", desc);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id={{ex09_created_id}}",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{ex09_created_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the Todo",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var oldDesc = pm.collectionVariables.get(\"ex09_description\");\r",
+									"var newDesc = \"!!! \" + oldDesc + \" !!!\"\r",
+									"pm.collectionVariables.set(\"ex09_old_description, oldDesc\");\r",
+									"pm.collectionVariables.set(\"ex09_description\", newDesc);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"doneStatus\" : true,\r\n    \"description\" : \"{{ex09_description}}\",\r\n    \"title\": \"Updated\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/{{ex09_created_id}}",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"{{ex09_created_id}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the todo again",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"var description = JSON.parse(responseBody).todos[0].description;\r",
+									"var old_desc = pm.collectionVariables.get(\"ex09_old_description\");\r",
+									"pm.test(\"description was updated\", function() {\r",
+									"    pm.expect(description).to.be.eql(\"!!!\"+ old_desc + \"!!!\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id={{ex09_created_id}}",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "{{ex09_created_id}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

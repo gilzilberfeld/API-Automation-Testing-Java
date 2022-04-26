@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "5ea1f603-0a6e-4d0c-97e0-cc53f3e95811",
+		"name": "EX01 - Simple Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "1 - Amazon iPhone 8 Search",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.amazon.com/s?=&k=iphone%208",
+					"protocol": "https",
+					"host": [
+						"www",
+						"amazon",
+						"com"
+					],
+					"path": [
+						"s"
+					],
+					"query": [
+						{
+							"key": null,
+							"value": ""
+						},
+						{
+							"key": "k",
+							"value": "iphone%208"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2- Posts on the server",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "jsonplaceholder.typicode.com/posts",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3- Add post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"gil-test\",\r\n    \"body\": \"bar\",\r\n    \"userId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "jsonplaceholder.typicode.com/posts",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4- Posts for UserId #1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "jsonplaceholder.typicode.com/posts?userId=1",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5- Posts for UserId as variable",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "jsonplaceholder.typicode.com/posts?userId={{userId}}",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					],
+					"query": [
+						{
+							"key": "userId",
+							"value": "{{userId}}"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6- Add post with variable",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"gil-test\",\r\n    \"body\": \"bar\",\r\n    \"userId\": \"{{userId}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "jsonplaceholder.typicode.com/posts",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "7- Add post with text/plain",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {}
+			},
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"gil-test\",\r\n    \"body\": \"bar\",\r\n    \"userId\": \"{{userId}}\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "jsonplaceholder.typicode.com/posts",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"posts"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "userId",
+			"value": "1"
+		},
+		{
+			"key": "ex08_created_id",
+			"value": ""
+		},
+		{
+			"key": "ex09_created_id",
+			"value": ""
+		},
+		{
+			"key": "ex09_description",
+			"value": ""
+		},
+		{
+			"key": "ex09_old_description, oldDesc",
+			"value": ""
+		}
+	]
+}

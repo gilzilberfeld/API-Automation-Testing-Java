@@ -1,0 +1,60 @@
+{
+	"info": {
+		"_postman_id": "dd1da7da-9fd7-4d13-9692-48f5d077c16e",
+		"name": "Demo - Data Driven",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Amazon - Data Driven",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var itemName = \"k=\" + pm.iterationData.get(\"item\");\r",
+							"var paramSent = pm.request.url.getQueryString();\r",
+							"    \r",
+							"   pm.test(\"variable was sent correctly\", function() {\r",
+							"    pm.expect(paramSent).to.be.eql(itemName);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.amazon.com/s?k={{item}}",
+					"protocol": "https",
+					"host": [
+						"www",
+						"amazon",
+						"com"
+					],
+					"path": [
+						"s"
+					],
+					"query": [
+						{
+							"key": "k",
+							"value": "{{item}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,33 @@
+{
+	"info": {
+		"_postman_id": "95a1719a-afb8-438e-8223-2195bd8b2698",
+		"name": "EX02 -  Multi Environment Single Query",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search iPhone in different environments",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{path_to_server}}={{Ex02-product}}",
+					"host": [
+						"{{path_to_server}}={{Ex02-product}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "col_product",
+			"value": "iPhone"
+		},
+		{
+			"key": "ex02_product",
+			"value": "iphone"
+		}
+	]
+}

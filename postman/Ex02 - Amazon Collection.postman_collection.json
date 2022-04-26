@@ -1,0 +1,39 @@
+{
+	"info": {
+		"_postman_id": "affc43a9-507a-4535-8c30-c9c2241703d5",
+		"name": "Ex02 - Amazon Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search iPhone",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.amazon.com/s?&k={{Ex02-product}}",
+					"protocol": "https",
+					"host": [
+						"www",
+						"amazon",
+						"com"
+					],
+					"path": [
+						"s"
+					],
+					"query": [
+						{
+							"key": null,
+							"value": null
+						},
+						{
+							"key": "k",
+							"value": "{{Ex02-product}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

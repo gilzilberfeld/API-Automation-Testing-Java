@@ -1,0 +1,1520 @@
+{
+	"info": {
+		"_postman_id": "b994970a-7a56-4a35-acd7-13f2c51b75d6",
+		"name": "EX01 - Workflows",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "01 - Create-Update-Delete",
+			"item": [
+				{
+					"name": "Get Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Todo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"title\": \"My Todo\",\r\n            \"doneStatus\": false,\r\n            \"description\": \"dognabbit\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the created todo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id=337",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "337"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete the created todo Copy",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/337",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"337"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "02 - Update Content",
+			"item": [
+				{
+					"name": "Create Todo with returned XML",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"title\": \"Another Todo\",\r\n            \"doneStatus\": false,\r\n            \"description\": \"dognabbit\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the post with XML and retun JSON",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<todo>\r\n    <doneStatus>true</doneStatus>\r\n    <description>dognabbit</description>\r\n    <title>Updated</title>\r\n</todo>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/348",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"348"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "03 - Errors",
+			"item": [
+				{
+					"name": "Update post with wrong field",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<todo>\r\n    <done.Status>true</done.Status>\r\n    <description>dognabbit</description>\r\n    <title>Updated</title>\r\n</todo>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/145",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"145"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a record that doesnt exist",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/3370",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"3370"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "04 Recreate deleted post",
+			"item": [
+				{
+					"name": "Get Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete specific todo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/171",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"171"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make sure the deleted todo is not there",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id=171",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "171"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Todo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"title\": \"My New Todo\",\r\n            \"doneStatus\": false,\r\n            \"description\": \"dognabbit\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the created todo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id=172",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "172"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "05 Recreate deleted post - automatable",
+			"item": [
+				{
+					"name": "Get Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Todo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"title\": \"My New Todo\",\r\n            \"doneStatus\": false,\r\n            \"description\": \"dognabbit\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make sure the created todo is there",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id=171",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "171"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete specific todo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/171",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"171"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make sure the deleted todo is not there",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id=171",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "171"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Todo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"title\": \"My New Todo\",\r\n            \"doneStatus\": false,\r\n            \"description\": \"dognabbit\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get the created todo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id=172",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "172"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "06 Updating posts automatable",
+			"item": [
+				{
+					"name": "Get Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the Todo with XML",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<todo>\r\n    <doneStatus>true</doneStatus>\r\n    <description>dognabbit</description>\r\n    <title>Updated</title>\r\n</todo>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/173",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"173"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make sure the todo is updated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id=173",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "173"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the todo with XML Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<todo>\r\n    <doneStatus>true</doneStatus>\r\n    <description>dognabbit</description>\r\n    <title>Updated</title>\r\n</todo>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/179",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"179"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update another todo",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<todo>\r\n    <doneStatus>true</doneStatus>\r\n    <description>dognabbit</description>\r\n    <title>Updated</title>\r\n</todo>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/175",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"175"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make sure the todos were  updated correctly",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id=179",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "179"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make sure the todos were  updated correctly",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id=175",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "175"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Todo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"title\": \"My New Todo\",\r\n            \"doneStatus\": false,\r\n            \"description\": \"dognabbit\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make sure the created todo is there",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id=183",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "183"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete specific todo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/183",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"183"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make sure the deleted todo is not there",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id=183",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "183"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Try to update the deleted post",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<todo>\r\n    <doneStatus>true</doneStatus>\r\n    <description>dognabbit</description>\r\n    <title>Updated</title>\r\n</todo>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/183",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"183"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the first todo again with different values",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<todo>\r\n    <doneStatus>true</doneStatus>\r\n    <description>dognabbit</description>\r\n    <title>Updated again</title>\r\n</todo>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos/173",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos",
+								"173"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make sure the todo is reupdated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos?id=171",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "171"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://apichallenges.herokuapp.com/todos",
+							"protocol": "https",
+							"host": [
+								"apichallenges",
+								"herokuapp",
+								"com"
+							],
+							"path": [
+								"todos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "07 Refactored updating posts",
+			"item": [
+				{
+					"name": "Get Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_challenges_path}}",
+							"host": [
+								"{{api_challenges_path}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the Todo with XML",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<todo>\r\n    <doneStatus>true</doneStatus>\r\n    <description>{{any_description}}</description>\r\n    <title>{{any_update}}</title>\r\n</todo>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_challenges_path}}/173",
+							"host": [
+								"{{api_challenges_path}}"
+							],
+							"path": [
+								"173"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make sure the todo is updated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_challenges_path}}?id=173",
+							"host": [
+								"{{api_challenges_path}}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "173"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the todo with XML Copy",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<todo>\r\n    <doneStatus>true</doneStatus>\r\n    <description>{{any_description}}</description>\r\n    <title>{{any_update}}</title>\r\n</todo>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_challenges_path}}/179",
+							"host": [
+								"{{api_challenges_path}}"
+							],
+							"path": [
+								"179"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update another todo",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<todo>\r\n    <doneStatus>true</doneStatus>\r\n     <description>{{any_description}}</description>\r\n    <title>{{any_update}}</title>\r\n</todo>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_challenges_path}}/175",
+							"host": [
+								"{{api_challenges_path}}"
+							],
+							"path": [
+								"175"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make sure the todos were  updated correctly",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_challenges_path}}?id=179",
+							"host": [
+								"{{api_challenges_path}}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "179"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make sure the todos were  updated correctly",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_challenges_path}}?id=175",
+							"host": [
+								"{{api_challenges_path}}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "175"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_challenges_path}}",
+							"host": [
+								"{{api_challenges_path}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create New Todo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"title\": \"My New Todo\",\r\n            \"doneStatus\": false,\r\n            \"description\": \"{{any_description}}\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_challenges_path}}",
+							"host": [
+								"{{api_challenges_path}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make sure the created todo is there",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_challenges_path}}?id=183",
+							"host": [
+								"{{api_challenges_path}}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "183"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete specific todo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{api_challenges_path}}/183",
+							"host": [
+								"{{api_challenges_path}}"
+							],
+							"path": [
+								"183"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make sure the deleted todo is not there",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_challenges_path}}?id=183",
+							"host": [
+								"{{api_challenges_path}}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "183"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Try to update the deleted post",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<todo>\r\n    <doneStatus>true</doneStatus>\r\n    <description>{{any_description}}</description>\r\n    <title>{{any_update}}</title>\r\n</todo>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_challenges_path}}/183",
+							"host": [
+								"{{api_challenges_path}}"
+							],
+							"path": [
+								"183"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update the first todo again with different values",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<todo>\r\n    <doneStatus>true</doneStatus>\r\n    <description>{{any_description}}</description>\r\n    <title>Updated again</title>\r\n</todo>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{api_challenges_path}}/173",
+							"host": [
+								"{{api_challenges_path}}"
+							],
+							"path": [
+								"173"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make sure the todo is reupdated",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_challenges_path}}?id=171",
+							"host": [
+								"{{api_challenges_path}}"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "171"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Todos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{api_challenges_path}}",
+							"host": [
+								"{{api_challenges_path}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

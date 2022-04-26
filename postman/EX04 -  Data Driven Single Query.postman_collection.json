@@ -1,0 +1,33 @@
+{
+	"info": {
+		"_postman_id": "d001d40a-1f1e-4448-a4d7-0c3ee9b14b4a",
+		"name": "EX04 -  Data Driven Single Query",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search different items in different sites",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}={{product}}",
+					"host": [
+						"{{url}}={{product}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "col_product",
+			"value": "iPhone"
+		},
+		{
+			"key": "ex02_product",
+			"value": "iphone"
+		}
+	]
+}
