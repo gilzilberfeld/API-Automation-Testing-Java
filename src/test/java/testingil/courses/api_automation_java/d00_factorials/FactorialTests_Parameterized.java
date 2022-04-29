@@ -26,12 +26,11 @@ public class FactorialTests_Parameterized {
         assertEquals(result, Factorial.calculate(input));
     }
 
-    //@Disabled
+    @Disabled
     @MethodSource("factorial_values")
     @ParameterizedTest
     public void factorial_tests_with_method(int input, int result) {
         Factorial factorial = new Factorial();
-        String property = Path.of("").toAbsolutePath().toString();
         assertEquals(result, Factorial.calculate(input));
 
     }
