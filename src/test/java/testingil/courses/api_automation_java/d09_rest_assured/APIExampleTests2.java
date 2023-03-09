@@ -1,6 +1,7 @@
 package testingil.courses.api_automation_java.d09_rest_assured;
 
 import io.restassured.http.ContentType;
+import io.restassured.response.Response;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
@@ -61,6 +62,15 @@ public class APIExampleTests2 {
                 body("company.name", equalTo("Romaguera-Crona"));
     }
 
+    @Test
+    public void using_json_path(){
+        Response response = given().
+                when().
+                get("http://jsonplaceholder.typicode.com/users/1");
+        assertThat(response.jsonPath().getString("address.city"), equalTo("Gwenborough"));
+        assertThat(response.jsonPath().getString("company.name"), equalTo("Romaguera-Crona"));
+
+    }
     @Test
     @Disabled("Doesn't really talk to a server")
     public void query_xml_response(){
