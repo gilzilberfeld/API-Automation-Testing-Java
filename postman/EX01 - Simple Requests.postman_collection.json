@@ -2,16 +2,28 @@
 	"info": {
 		"_postman_id": "5ea1f603-0a6e-4d0c-97e0-cc53f3e95811",
 		"name": "EX01 - Simple Requests",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2056961"
 	},
 	"item": [
 		{
 			"name": "1 - Amazon iPhone 8 Search",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
 				"url": {
-					"raw": "https://www.amazon.com/s?=&k=iphone%208",
+					"raw": "https://www.amazon.com/s?k=iphone%208",
 					"protocol": "https",
 					"host": [
 						"www",
@@ -23,8 +35,9 @@
 					],
 					"query": [
 						{
-							"key": null,
-							"value": ""
+							"key": "",
+							"value": "",
+							"disabled": true
 						},
 						{
 							"key": "k",
@@ -192,10 +205,30 @@
 			"response": []
 		}
 	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
 	"variable": [
 		{
 			"key": "userId",
-			"value": "1"
+			"value": "2"
 		},
 		{
 			"key": "ex08_created_id",
@@ -212,6 +245,27 @@
 		{
 			"key": "ex09_old_description, oldDesc",
 			"value": ""
+		},
+		{
+			"key": "value",
+			"value": "1"
+		},
+		{
+			"key": "new_new_user_id",
+			"value": "1"
+		},
+		{
+			"key": "new_new_new_user_id",
+			"value": "1"
+		},
+		{
+			"key": "id1",
+			"value": "1"
+		},
+		{
+			"key": "id22",
+			"value": "1",
+			"type": "string"
 		}
 	]
 }

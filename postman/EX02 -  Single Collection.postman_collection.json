@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "fe709b80-bc7a-4d1d-bbab-81f76d7d85d0",
+		"_postman_id": "918a97fb-c939-4eb4-b627-7aaa89b6a0ca",
 		"name": "EX02 -  Single Collection",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2056961"
 	},
 	"item": [
 		{
@@ -11,22 +12,9 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://www.ebay.com/sch/i.html?_nkw={{ex02_product}}",
-					"protocol": "https",
+					"raw": "{{path_to_server}}={{ex02_product}}",
 					"host": [
-						"www",
-						"ebay",
-						"com"
-					],
-					"path": [
-						"sch",
-						"i.html"
-					],
-					"query": [
-						{
-							"key": "_nkw",
-							"value": "{{ex02_product}}"
-						}
+						"{{path_to_server}}={{ex02_product}}"
 					]
 				}
 			},
@@ -51,7 +39,7 @@
 					"query": [
 						{
 							"key": null,
-							"value": null,
+							"value": "",
 							"disabled": true
 						},
 						{
@@ -80,11 +68,6 @@
 						"wholesale"
 					],
 					"query": [
-						{
-							"key": "initiative_id",
-							"value": "",
-							"disabled": true
-						},
 						{
 							"key": "SearchText",
 							"value": "{{ex02_product}}"

@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "95a1719a-afb8-438e-8223-2195bd8b2698",
+		"_postman_id": "945b52d1-ec33-4c70-b1a8-5e074732c5bf",
 		"name": "EX02 -  Multi Environment Single Query",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2056961"
 	},
 	"item": [
 		{

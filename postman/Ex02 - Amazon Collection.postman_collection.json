@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "affc43a9-507a-4535-8c30-c9c2241703d5",
+		"_postman_id": "320f3446-10a7-4484-bbd0-37b106774b44",
 		"name": "Ex02 - Amazon Collection",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2056961"
 	},
 	"item": [
 		{
@@ -24,7 +25,7 @@
 					"query": [
 						{
 							"key": null,
-							"value": null
+							"value": ""
 						},
 						{
 							"key": "k",

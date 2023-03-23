@@ -1,8 +1,9 @@
 {
 	"info": {
-		"_postman_id": "0bcedc29-a40a-4816-89f1-81f035a835f8",
+		"_postman_id": "eaeeeb6b-4fc4-4631-9030-81d476a6b4ea",
 		"name": "EX02 - eBay Collection",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2056961"
 	},
 	"item": [
 		{
