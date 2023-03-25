@@ -37,11 +37,13 @@ public class RA_Tests {
     // use size() in the body to query the array size
     @Test
     public void number_of_total_posts_is_100(){
-        given().
+        Response response =given().
         when().
                 get("http://jsonplaceholder.typicode.com/posts").
         then().
-                body("size()", equalTo(100));
+                body("size()", equalTo(100)).extract().response();
+
+        assertThat(response.jsonPath().getList("").size(), equalTo(100));
     }
 
     // #3
