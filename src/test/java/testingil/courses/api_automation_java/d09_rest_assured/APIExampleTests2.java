@@ -57,11 +57,24 @@ public class APIExampleTests2 {
                 get("http://jsonplaceholder.typicode.com/users/1").
         then().
                 assertThat().
+                log().all().
                 body("address.city", equalTo("Gwenborough"))
                 .and().
                 body("company.name", equalTo("Romaguera-Crona"));
     }
 
+    @Test
+    public void accessing_arrays_in_response(){
+        given().
+                when().
+                get("http://jsonplaceholder.typicode.com/users")
+                .then()
+                .log().all()
+                .assertThat()
+                .body("[0].id", equalTo(1))
+                .body(("[0].name"), equalTo("Leanne Graham"));
+    }
+    
     @Test
     public void using_json_path(){
         Response response = given().
@@ -71,6 +84,8 @@ public class APIExampleTests2 {
         assertThat(response.jsonPath().getString("company.name"), equalTo("Romaguera-Crona"));
 
     }
+
+
     @Test
     @Disabled("Doesn't really talk to a server")
     public void query_xml_response(){
