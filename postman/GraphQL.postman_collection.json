@@ -1,0 +1,37 @@
+{
+	"info": {
+		"_postman_id": "74d50641-4f6b-4518-b139-74ac5f6ec1d0",
+		"name": "GraphQL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2056961"
+	},
+	"item": [
+		{
+			"name": "GraphQL Example",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n    country(code: \"IL\"){\r\n        name\r\n        capital\r\n        currency\r\n        languages {\r\n            name\r\n        }\r\n    }\r\n}\r\n",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "https://countries.trevorblades.com/",
+					"protocol": "https",
+					"host": [
+						"countries",
+						"trevorblades",
+						"com"
+					],
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
